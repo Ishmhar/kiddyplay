@@ -5,7 +5,6 @@ const express = require("express");
 const Post = require("./model/Post");
 
 const app = express();
-const port = 3000;
 
 mongoose.connect(process.env.mongoURI, {
         useNewUrlParser: true,
@@ -55,6 +54,4 @@ app.get("/contact", async (req, res) => {
     res.render("contact");
 });
 
-app.listen(port, () => {
-    console.log(`Application is listening at port ${port}`);
-});
+app.listen(process.env.PORT || 8080)
